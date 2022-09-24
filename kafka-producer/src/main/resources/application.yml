@@ -1,24 +1,13 @@
 spring:
   kafka:
-    bootstrap-servers:
-    - ${KAFKA_SERVER:localhost:9093}
-    security:
-      protocol: SSL
-    ssl:
-      trust-store-type: JKS
-      key-store-type: JKS
-      protocol: SSL
-      trust-store-location: "file:/Users/luizmandico/dev/spring-kafka-example/kafka-producer/docker/SSL/certs/kafka.client.truststore.jks"
-      trust-store-password: 123abc
-      key-store-location: "file:/Users/luizmandico/dev/spring-kafka-example/kafka-producer/docker/SSL/certs/kafka.client.keystore.jks"
-      key-store-password: 123abc
-      key-password: 123abc
+    bootstrap-servers: ${KAFKA_SERVER:localhost:9092}
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      acks: 1
 
-server:
-  port : 8080
-  
 topic:
   message: ${TOPIC_NAME:lab_topic}
+  
+server:
+  port : 8080

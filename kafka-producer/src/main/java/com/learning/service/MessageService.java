@@ -18,7 +18,12 @@ public class MessageService {
     private KafkaTemplate<String, String> kafkaTemplate;
 
     public void sendMessage(String message) {
-        logger.info("Mensagem -> {}", message);
+    	logger.info("*******************************************************");
+    	logger.info("* KAFKA PRODUCER");
+    	logger.info("*******************************************************");
+    	logger.info("* Topic........: -> {}", topic_name);
+        logger.info("* Message......: -> {}", message);
+        logger.info("*******************************************************");
         this.kafkaTemplate.send(topic_name, message);
     }
 }

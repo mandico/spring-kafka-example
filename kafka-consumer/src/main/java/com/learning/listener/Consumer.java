@@ -18,14 +18,17 @@ public class Consumer {
 	@Value("${topic.message}")
 	private String topic_name;
 
-	private final Logger log = LoggerFactory.getLogger(Consumer.class);
+	private final Logger logger = LoggerFactory.getLogger(Consumer.class);
 
 	@KafkaListener(topics = "${topic.message}", groupId = "group_id")
 	public void consume(ConsumerRecord<String, String> payload) {
-		log.info("Tópico: {}", topic_name);
-		log.info("Partion: {}", payload.partition());
-		log.info("Order: {}", payload.value());
-		log.info("*********************************");
+		logger.info("*******************************************************");
+    	logger.info("* KAFKA CONSUMER");
+    	logger.info("*******************************************************");
+		logger.info("* Topic........: {}", topic_name);
+		logger.info("* Partion......: {}", payload.partition());
+		logger.info("* Message......: {}", payload.value());
+		logger.info("*******************************************************");
 
 	}
 }

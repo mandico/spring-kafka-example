@@ -1,4 +1,4 @@
-package com.learning.resource;
+package com.learning.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
