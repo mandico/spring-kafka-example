@@ -2,13 +2,14 @@ spring:
   kafka:
     bootstrap-servers: ${KAFKA_SERVER:localhost:9092}
     consumer:
+      client-id: ${KAFKA_CLIENT_ID:consumer_client_id}
       group-id: ${KAFKA_CONSUMER_GROUP:consumer_group_id}
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
 
-server:
-  port : 8181
-
 topic:
   message: ${TOPIC_NAME:lab_topic}
+
+server:
+  port : 8081

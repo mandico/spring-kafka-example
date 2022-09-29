@@ -20,7 +20,7 @@ public class Consumer {
 
 	private final Logger logger = LoggerFactory.getLogger(Consumer.class);
 
-	@KafkaListener(topics = "${topic.message}", groupId = "group_id")
+	@KafkaListener(topics = "${topic.message}", groupId = "${spring.kafka.consumer.group-id}")
 	public void consume(ConsumerRecord<String, String> payload) {
 		logger.info("*******************************************************");
     	logger.info("* KAFKA CONSUMER");
